@@ -40,7 +40,7 @@ def add_extra_edges(g,number_of_edges):
             if (u,v) not in extra_edges:
                 extra_edges.add((u,v))
     extra_edges = list(extra_edges)
-    print("# extra edges added (path lenght unconstrainted): %d" % (len(extra_edges)))
+    print("# extra edges added (path length unconstrainted): %d" % (len(extra_edges)))
     return extra_edges    
 
 
