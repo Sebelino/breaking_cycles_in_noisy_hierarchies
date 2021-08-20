@@ -5,7 +5,7 @@ from remove_cycle_edges_by_hierarchy_voting import remove_cycle_edges_heuristic
 from measures import F1
 from file_io import read_dict_from_file
 from file_io import write_pairs_to_file
-    
+
 def get_edges_voting_scores(set_edges_list):
     total_edges = set()
     for edges in set_edges_list:
@@ -71,7 +71,7 @@ def computing_hierarchy(graph_file,players_score_func_name, nodetype = int):
         #players = graphbased_trueskill(g)
         #from file_io import write_dict_to_file
         #write_dict_to_file(players,output_file)
-        
+
         '''
         if os.path.isfile(output_file):
             print("load pre-computed trueskill from: %s" % output_file)
@@ -87,16 +87,16 @@ def computing_hierarchy(graph_file,players_score_func_name, nodetype = int):
             from file_io import write_dict_to_file
             print("write trueskill to file: %s" % output_file)
             write_dict_to_file(players,output_file)
-        
+
         return players
 
 def breaking_cycles_by_hierarchy_performance(graph_file,gt_file,players_score_name,nodetype = int):
-    
+
     from measures import report_performance
     if players_score_name != "ensembling":
         players_score_dict  = computing_hierarchy(graph_file,players_score_name,nodetype = nodetype)
         e1,e2,e3,e4 = remove_cycle_edges_by_hierarchy(graph_file,players_score_dict,players_score_name,nodetype = nodetype)
-        
+
         if players_score_name == "pagerank":
             report_performance(gt_file,e1,"PR")
             return
@@ -145,11 +145,11 @@ if __name__ == "__main__":
     parser.add_argument("-g","--graph_file",default= " ", help = "input graph file name (edges list)")
     parser.add_argument("-s","--score_name",default = "pagerank",help = "nodes score function: trueskill, socialagony, ensembling, pagerank...")
     parser.add_argument("-t","--gt_edges_file",default = None, help = "ground truth edges file")
-    
+
     args = parser.parse_args()
     graph_file = args.graph_file
     players_score_name = args.score_name
     gt_file = args.gt_edges_file
 
     breaking_cycles_by_hierarchy_performance(graph_file,gt_file,players_score_name)
-    
+

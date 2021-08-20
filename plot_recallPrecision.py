@@ -102,7 +102,7 @@ def plotPrecisionRecallDiagram(title="title", points=None, labels=None, loc="bes
     pl.axis(xy_ranges)  # xmin, xmax, ymin, ymax
     if save_file:
         pl.savefig(save_file)
-    
+
     pl.show()
     pl.close()
 

@@ -12,7 +12,7 @@ def evaluation(graph_file,gt_edges_file,method,nodetype = int):
     elif method == "pagerank" or method == "ensembling" or method == "trueskill" or method == "socialagony":
         from remove_cycle_edges_by_hierarchy import breaking_cycles_by_hierarchy_performance
         breaking_cycles_by_hierarchy_performance(graph_file,gt_edges_file,method,nodetype = nodetype)
-    
+
 def break_cycles(graph_file,extra_edges_file = None,algorithm = "ensembling",nodetype = int):
     methods = ["dfs","pagerank","mfas","ensembling"]
 
@@ -21,7 +21,7 @@ def break_cycles(graph_file,extra_edges_file = None,algorithm = "ensembling",nod
             evaluation(graph_file,extra_edges_file,method,nodetype = nodetype)
     else:
         evaluation(graph_file,extra_edges_file,algorithm,nodetype = nodetype)
-    
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()

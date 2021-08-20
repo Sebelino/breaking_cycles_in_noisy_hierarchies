@@ -66,6 +66,6 @@ if __name__ == "__main__":
     parser.add_argument("-t","--gt_edges_file",default = None, help = "ground truth edges file")
     args = parser.parse_args()
     graph_file = args.graph_file
-    
+
     print("graph_file %s " % graph_file)    
     dfs_performance(graph_file,args.gt_edges_file)

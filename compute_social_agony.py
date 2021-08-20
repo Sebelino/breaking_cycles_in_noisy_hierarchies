@@ -14,10 +14,10 @@ def compute_social_agony_script(graph_file,output,agony_path = "agony/agony "):
     print("====compute agony done=====")
 
 def compute_social_agony(graph_file,agony_path = "agony/agony "):
-    
+
     dir_name,tail = dir_tail_name(graph_file)
     output = os.path.join(dir_name,tail.split(".")[0] + "_socialagony.txt")
-    
+
     compute_social_agony_script(graph_file,output,agony_path = agony_path)
     from file_io import read_dict_from_file
     agony_score = read_dict_from_file(output)
@@ -30,4 +30,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     graph_file = args.graph_file
     compute_social_agony(graph_file)
-    

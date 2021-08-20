@@ -16,7 +16,7 @@ def remove_cycle_edges_by_ranking_score_iterately(sccs,players,edges_to_be_remov
 
         #node_scores = [(node,players[node]) for node in graph.nodes_iter()]
         #sorted_node_scores = sorted(node_scores,key = lambda x: x[1])
-    
+
         if is_Forward:
             node,score = max_k,max_v
             target_edges = [(node,v) for v in graph.successors(node)]
@@ -25,7 +25,7 @@ def remove_cycle_edges_by_ranking_score_iterately(sccs,players,edges_to_be_remov
             node,score = min_k,min_v
             #node,score = sorted_node_scores.pop()
             target_edges = [(v,node) for v in graph.predecessors(node)]
-        
+
         '''
         from remove_cycle_edges_by_agony import get_agonies
         pair_agony_dict = get_agonies(target_edges,players)

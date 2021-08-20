@@ -19,7 +19,7 @@ def write_pairs_to_file(edges_list,edges_list_file):
         u,v = e
         f.write(str(u) + " " + str(v) + " \n")
     f.close()
-    
+
 def write_edges_to_file(edges_list,edges_list_file):
     write_pairs_to_file(edges_list,edges_list_file)
 
@@ -54,7 +54,7 @@ def read_pairs_from_file(edges_list_file,first_type = int, second_type = int):
     except Exception as e:
         return []
 
-    
+
 def read_edges_from_file(edges_list_file,first_type = int, second_type = int):
     return read_pairs_from_file(edges_list_file,first_type = int, second_type = int)
 

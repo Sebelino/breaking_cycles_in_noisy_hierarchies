@@ -11,20 +11,20 @@ if __name__ == "__main__":
     parser.add_argument("-m","--num_edges",default = 2500, type = int, help = "number of edges")
     parser.add_argument("-k","--num_extra_edges",default = 300, type = int, help = "# extra edges added to the DAG")
     parser.add_argument("-l","--path_length",default = 0, type = int, help = "thresold d to control path length (<=0: no constraints on path length, otherwise less than this threshold)")
-    
+
     args = parser.parse_args()
-    
+
 
     n = args.num_nodes 
     m = args.num_edges 
     k = args.num_extra_edges
     l = args.path_length
-    
+
     if not os.path.exists(args.dir):
         os.makedirs(args.dir)
 
     graph_file = args.dir + "gnm_" + str(n) + "_" + str(m)+".edges"
-    
+
     # generate random DAG
     from generate_random_dag import gnm_random_graph
     g = gnm_random_graph(n,m)

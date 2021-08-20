@@ -51,7 +51,7 @@ def evaluation(gt_file,predicted_file):
 def report_performance(gt_file,predicted_edges,note):
     #print("edges to be removed: %s" % predicted_edges)
     #print("**********************")
-    
+
     if gt_file != None:
         gt_edges = read_pairs_from_file(gt_file)
         accu,recall,F1_score =  F1(gt_edges,predicted_edges)

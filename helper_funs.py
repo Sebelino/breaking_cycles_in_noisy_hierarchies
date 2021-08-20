@@ -37,7 +37,7 @@ def pick_from_dict(d, order = "max"):
 
     min_items = []
     max_k, max_v=  0, -10000
-    
+
     max_items = []
     for k,v in d.iteritems():
         if v > max_v:

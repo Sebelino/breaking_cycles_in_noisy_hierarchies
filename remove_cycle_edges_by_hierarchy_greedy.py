@@ -19,7 +19,7 @@ def get_agonies(edges,players):
     return edges_agony_dict
 
 def remove_cycle_edges_by_agony(graph,players,edges_to_be_removed):
-    
+
     pair_agony_dict = {}
     for pair in graph.edges():
         u,v = pair
@@ -93,7 +93,7 @@ def scc_based_to_remove_cycle_edges_iterately(g,nodes_score):
     if len(big_sccs) == 0:
         print("After removal of self loop edgs: %s" % nx.is_directed_acyclic_graph(g))
         return self_loops
-    
+
     remove_cycle_edges_by_agony_iterately(big_sccs,scc_nodes_score_dict,edges_to_be_removed)
     #print(" # edges to be removed: %d" % len(edges_to_be_removed))
     return edges_to_be_removed+self_loops

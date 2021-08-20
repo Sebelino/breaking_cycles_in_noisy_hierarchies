@@ -48,7 +48,7 @@ def trueskill_ratings(pairs,iter_times = 15,n_sigma = 3,threshold = 0.85):
 
 def graphbased_trueskill(g,iter_times = 15,n_sigma = 3,threshold = 0.95):
     from s_c_c import scc_nodes_edges
-    
+
     relative_scores = trueskill_ratings(list(g.edges()),iter_times = iter_times,n_sigma = n_sigma,threshold = threshold)
     scc_nodes,scc_edges,nonscc_nodes,nonscc_edges = scc_nodes_edges(g)
     print("----scc-------")

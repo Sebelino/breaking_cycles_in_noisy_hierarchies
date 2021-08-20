@@ -98,4 +98,3 @@ if __name__ == "__main__":
     graph_file = args.graph_file
     gt_file = args.gt_edges_file
     mfas_performance(graph_file,gt_file)
-    

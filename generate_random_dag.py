@@ -39,7 +39,7 @@ def gnm_random_graph(n, m, seed=None, directed=True):
         return G
 
     max_edges=n*(n-1)
-    
+
     if not directed:
         max_edges/=2.0
     if m>=max_edges:
