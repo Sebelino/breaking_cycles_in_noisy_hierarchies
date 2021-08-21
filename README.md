@@ -16,8 +16,8 @@
 
 #### 0. Requirements
 
-* Python 2.7
-* Lib: networkx 1.1/2.x
+* Python 3
+* Lib: networkx >= 2.6
 
 If you have ran errors like ```DiGraph has no attributes of nodes_iter() or edges_iter()```, please changes ```nodes_iter()``` to ```list(nodes())``` and ```edges_iter()``` to ```list(edges())```.
 
