@@ -47,7 +47,7 @@ def _plotFMeasures(fstepsize=.1,  stepsize=0.0005, start = 0.0, end = 1.0):
             y_left = -0.02
             pl.annotate(r"$f=%.1f$" % f, xy=(xs[datapoint_x_loc], ys[datapoint_y_loc]), xytext=(xs[datapoint_x_loc] - x_left, ys[datapoint_y_loc] - y_left), size="small", color="gray")
         except Exception as e:
-            print e 
+            print(e)
 
 #colors = "gcmbbbrrryk"
 #colors = "yyybbbrrrckgm"  # 7 is a prime, so we'll loop over all combinations of colors and markers, when zipping their cycles
@@ -81,17 +81,17 @@ def plotPrecisionRecallDiagram(title="title", points=None, labels=None, loc="bes
     _plotFMeasures(start = min(xy_ranges[0],xy_ranges[2]), end = max(xy_ranges[1],xy_ranges[3]))
 
     if points:
-        getColor = it.cycle(colors).next
-        getMarker = it.cycle(markers).next
+        getColor = it.cycle(colors)
+        getMarker = it.cycle(markers)
 
         scps = []  # scatter points
         for i, (x, y) in enumerate(points):
             label = None
             if labels:
                 label = labels[i]
-            print i, x, y, label
+            print(i, x, y, label)
             scp = ax.scatter(x, y, label=label, s=50, linewidths=0.75,
-                             facecolor=getColor(), alpha=0.75, marker=getMarker())
+                             facecolor=next(getColor), alpha=0.75, marker=next(getMarker))
             scps.append(scp)
             # pl.plot(x,y, label=label, marker=getMarker(), markeredgewidth=0.75, markerfacecolor=getColor())
             # if labels: pl.text(x, y, label, fontsize="x-small")
@@ -119,7 +119,7 @@ def load_points(file_name):
 
 def draw_recall_precision(data_file,title = "Precision_Recall"):
     data_dict = load_points(data_file)
-    sorted_pairs = sorted(data_dict.iteritems(), key = lambda x: x[0])
+    sorted_pairs = sorted(data_dict.items(), key = lambda x: x[0])
     values = [v for _,v in sorted_pairs]
     keys = [k for k,_ in sorted_pairs]
     plotPrecisionRecallDiagram(title = title,points = values,labels = keys, loc = "lower right" ,xy_ranges = [0.2,1,0.2,1], save_file = data_file[:len(data_file)-4] + "_" + title+".pdf")
